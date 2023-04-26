@@ -10,6 +10,16 @@ export default defineConfig({
 		alias: {
 			'@': path.resolve(__dirname, './src'),
 		},
-    extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json", ".vue"],
+		extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
+	},
+	server: {
+		open: true,
+		proxy: {
+			'/api': {
+				target: 'http://localhost:8080',
+				changeOrigin: true,
+				rewrite: (path) => path.replace(/^\/api/, ''),
+			},
+		},
 	},
 })
