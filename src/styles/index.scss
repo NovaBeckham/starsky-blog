@@ -9,7 +9,7 @@
 body {
 	background: #222;
 	color: #222;
-	font-family: Mulish, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+	font-family: Mulish, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
 	font-size: 1em;
 	overflow-x: hidden;
 	line-height: 2;
@@ -25,4 +25,35 @@ body {
 	flex-direction: column;
 	width: 100%;
 	padding: 0 0 8rem;
+}
+
+.bg {
+	background-color: #222;
+}
+
+.main-container {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	width: calc(100% - 0.625rem);
+	margin: 0 auto;
+	padding-bottom: 1.75rem;
+	animation: slideUpIn 1s;
+}
+
+.left-container {
+	width: 100%;
+	transition: all 0.3s;
+}
+
+@keyframes slideUpIn {
+	0% {
+			opacity: 0;
+			transform: translateY(40px);
+	}
+
+	100% {
+			opacity: 1;
+			transform: translateY(0);
+	}
 }
