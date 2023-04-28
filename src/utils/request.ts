@@ -1,4 +1,4 @@
-import { createDiscreteApi, useMessage } from 'naive-ui'
+import { createDiscreteApi } from 'naive-ui'
 import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 
 const { message } = createDiscreteApi(['message'])

@@ -9,7 +9,7 @@ import { Article } from './types'
  */
 export function getArticleList(params: PageQuery): Promise<Result<PageResult<Article[]>>> {
 	return requests({
-		url: '/article/hotList',
+		url: '/article/list',
 		method: 'get',
 		params,
 	})
