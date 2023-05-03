@@ -34,7 +34,7 @@ export default defineComponent({
 						<div class={$styles.articleItem}>
 							<div class={$styles.articleCover}>
 								<a href={`/article/${item.id}`}>
-									<img class={$styles.articleImg} v-lazy={item.img} />
+									<img class={$styles.articleImg} src={item.img} />
 								</a>
 							</div>
 						</div>

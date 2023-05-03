@@ -5,14 +5,10 @@ export default defineComponent({
 	name: 'Brand',
 	setup() {
 		const hitokoto = ref('')
-		const fetchData = () => {
-			fetch('https://v1.hitokoto.cn')
-				.then((res) => {
-					return res.json()
-				})
-				.then((data) => {
-					hitokoto.value = data.hitokoto
-				})
+		const fetchData = async () => {
+			const res = await fetch('https://v1.hitokoto.cn')
+			const data = await res.json()
+			hitokoto.value = data.hitokoto
 		}
 		onMounted(() => {
 			fetchData()
