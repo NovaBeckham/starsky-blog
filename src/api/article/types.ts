@@ -15,9 +15,9 @@ export interface Article {
    */
   title: string;
   /**
-   * 文章内容
+   * 文章摘要
    */
-  content: string;
+  summary: string;
   /**
    * 文章分类
    */

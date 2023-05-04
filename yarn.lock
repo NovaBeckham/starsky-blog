@@ -470,6 +470,16 @@
   dependencies:
     types-ramda "^0.29.1"
 
+"@vicons/carbon@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.npmjs.org/@vicons/carbon/-/carbon-0.12.0.tgz#dfcc5d6283662eccee55700b2d5c29e688a70f5a"
+  integrity sha512-kCOgr/ZOhZzoiFLJ8pwxMa2TMxrkCUOA22qExPabus35F4+USqzcsxaPoYtqRd9ROOYiHrSqwapak/ywF0D9bg==
+
+"@vicons/ionicons5@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.npmjs.org/@vicons/ionicons5/-/ionicons5-0.12.0.tgz#c39fda04420dfae3b58053faf8aaf3555253299d"
+  integrity sha512-Iy1EUVRpX0WWxeu1VIReR1zsZLMc4fqpt223czR+Rpnrwu7pt46nbnC2ycO7ItI/uqDLJxnbcMC7FujKs9IfFA==
+
 "@vitejs/plugin-vue-jsx@^3.0.1":
   version "3.0.1"
   resolved "https://registry.npmjs.org/@vitejs/plugin-vue-jsx/-/plugin-vue-jsx-3.0.1.tgz#4c088ce445e34ae27e78a66e6dbf2cc2e85f827d"
@@ -796,6 +806,11 @@ date-fns@^2.28.0:
   version "2.29.3"
   resolved "https://registry.npmjs.org/date-fns/-/date-fns-2.29.3.tgz#27402d2fc67eb442b511b70bbdf98e6411cd68a8"
   integrity sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==
+
+dayjs@^1.11.7:
+  version "1.11.7"
+  resolved "https://registry.npmjs.org/dayjs/-/dayjs-1.11.7.tgz#4b296922642f70999544d1144a2c25730fce63e2"
+  integrity sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==
 
 de-indent@^1.0.2:
   version "1.0.2"

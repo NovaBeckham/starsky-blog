@@ -1,9 +1,13 @@
 import { getArticleList } from '@/api/article'
 import { Article } from '@/api/article/types'
 import { PageQuery } from '@/model'
+import { NIcon } from 'naive-ui'
 import { isNil, map } from 'ramda'
 import { defineComponent, onMounted, reactive } from 'vue'
 import $styles from './index.module.scss'
+import { Calendar } from '@vicons/ionicons5'
+import { Category } from '@vicons/carbon'
+import { formatDate } from '@/utils/date'
 
 interface State {
 	queryParams: PageQuery
@@ -33,9 +37,25 @@ export default defineComponent({
 					return (
 						<div class={$styles.articleItem}>
 							<div class={$styles.articleCover}>
-								<a href={`/article/${item.id}`}>
-									<img class={$styles.articleImg} src={item.img} />
-								</a>
+								<img class={$styles.articleImg} src={item.img} />
+							</div>
+							<div class={$styles.info}>
+								<div class={$styles.meta}>
+									<span class={$styles.item}>
+										<NIcon size="0.9rem" style={{ marginRight: '0.15rem' }}>
+											<Calendar />
+										</NIcon>
+										{formatDate(item.updatedAt)}
+									</span>
+								</div>
+								<h3 class={$styles.title}>{item.title}</h3>
+								<div class={$styles.summary}>{item.summary}</div>
+								<div class={$styles.category}>
+									<NIcon size="0.85rem" style={{ marginRight: '0.15rem' }}>
+										<Category />
+									</NIcon>
+									<span>{item.cid}</span>
+								</div>
 							</div>
 						</div>
 					)
