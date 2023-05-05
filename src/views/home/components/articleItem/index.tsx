@@ -2,16 +2,29 @@ import { getArticleList } from '@/api/article'
 import { Article } from '@/api/article/types'
 import { PageQuery } from '@/model'
 import { NIcon } from 'naive-ui'
-import { isNil, map } from 'ramda'
+import { isEmpty, isNil, map } from 'ramda'
 import { defineComponent, onMounted, reactive } from 'vue'
 import $styles from './index.module.scss'
 import { Calendar } from '@vicons/ionicons5'
 import { Category } from '@vicons/carbon'
 import { formatDate } from '@/utils/date'
+import { getCategoryList } from '@/api/category'
 
 interface State {
 	queryParams: PageQuery
 	articleList: Article[]
+	categoryList: Array<{ name: string; id: number }>
+}
+
+const categoryFilter = (key: number, list: Array<{ name: string; id: number }>) => {
+	if (isEmpty(list)) {
+		return key
+	}
+	const data = list.find((item) => item.id === key)
+	if (data) {
+		return data.name
+	}
+	return key
 }
 
 export default defineComponent({
@@ -23,13 +36,17 @@ export default defineComponent({
 				size: 5,
 			},
 			articleList: [],
+			categoryList: [],
 		})
-		onMounted(() => {
-			getArticleList(pageState.queryParams).then(({ code, data }) => {
-				if (code === 200 && !isNil(data)) {
-					pageState.articleList = data.records
-				}
-			})
+		onMounted(async () => {
+			const { code: categoryCode, data: categoryData } = await getCategoryList()
+			if (categoryCode === 200 && !isNil(categoryData)) {
+				pageState.categoryList = categoryData
+			}
+			const { code: articleCode, data: articleData } = await getArticleList(pageState.queryParams)
+			if (articleCode === 200 && !isNil(articleData)) {
+				pageState.articleList = articleData.records
+			}
 		})
 		return () => (
 			<>
@@ -54,7 +71,7 @@ export default defineComponent({
 									<NIcon size="0.85rem" style={{ marginRight: '0.15rem' }}>
 										<Category />
 									</NIcon>
-									<span>{item.cid}</span>
+									<span>{categoryFilter(item.cid, pageState.categoryList)}</span>
 								</div>
 							</div>
 						</div>
