@@ -1,3 +1,4 @@
+import SideBar from '@/components/layout/sideBar'
 import { defineComponent } from 'vue'
 import ArticleItem from './components/articleItem'
 import Brand from './components/brand'
@@ -16,6 +17,7 @@ export default defineComponent({
 						<div class="left-container">
 							<ArticleItem />
 						</div>
+						<SideBar class="right-container" />
 					</div>
 				</div>
 			</div>
