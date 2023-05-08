@@ -14,3 +14,15 @@ export function getArticleList(params: PageQuery): Promise<Result<PageResult<Art
 		params,
 	})
 }
+
+/**
+ * 获取文章详情
+ * @param id 
+ * @returns 文章详情
+ */
+export function getArticleDetail(id: number): Promise<Result<Article>> {
+	return requests({
+		url: `/article/${id}`,
+		method: 'get',
+	})
+}

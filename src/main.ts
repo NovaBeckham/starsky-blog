@@ -3,9 +3,9 @@ import '@/styles/index.scss'
 import { createApp } from 'vue'
 import App from './App'
 import router from '@/router'
-import lazy from '@/directive/lazy'
+import VMdPreview from "@kangc/v-md-editor/lib/preview"
 
 const app = createApp(App)
 app.use(router)
-app.directive('lazy', lazy)
+app.use(VMdPreview)
 app.mount('#app')

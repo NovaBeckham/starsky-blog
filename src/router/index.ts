@@ -9,6 +9,14 @@ const routes: RouteRecordRaw[] = [
 		},
 	},
 	{
+    name: "Article",
+    path: "/article/:id",
+    component: () => import("@/views/article"),
+    meta: {
+      title: "文章",
+    },
+  },
+	{
 		path: '/404',
 		component: () => import('@/views/404'),
 		meta: {

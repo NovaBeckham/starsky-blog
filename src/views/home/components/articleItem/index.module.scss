@@ -34,7 +34,14 @@
 			}
 		}
 
-		.article-category {
+		.btn {
+			left: 0;
+			right: auto;
+			border-radius: 0 1rem;
+			background-image: linear-gradient(to right, rgba(240, 163, 135, 0.8) 0, rgba(241, 139, 179, 0.8) 100%);
+		}
+
+		.category {
       right: 0.5rem;
       justify-content: flex-start;
     }
@@ -93,4 +100,14 @@
   bottom: 0.5rem;
   font-size: 0.8125em;
 	color: #aaa;
+}
+
+.btn {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding: 0.3rem 1rem;
+	border-radius: 1rem 0;
+	color: #222;
+	background-image: linear-gradient(to right, rgba(241, 139, 179, 0.8) 0, rgba(240, 163, 135, 0.8) 100%);
 }

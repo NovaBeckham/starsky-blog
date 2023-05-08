@@ -1,4 +1,4 @@
-import { getArticleList } from '@/api/article'
+import { getArticleDetail, getArticleList } from '@/api/article'
 import { Article } from '@/api/article/types'
 import { PageQuery } from '@/model'
 import { NIcon } from 'naive-ui'
@@ -48,6 +48,12 @@ export default defineComponent({
 				pageState.articleList = articleData.records
 			}
 		})
+		const toDetail = async (id: number) => {
+			const { code, data } = await getArticleDetail(id)
+			if (code === 200 && !isNil(data)) {
+				console.log('data', data)
+			}
+		}
 		return () => (
 			<>
 				{map((item) => {
@@ -62,7 +68,7 @@ export default defineComponent({
 										<NIcon size="0.9rem" style={{ marginRight: '0.15rem' }}>
 											<Calendar />
 										</NIcon>
-										{formatDate(item.updatedAt)}
+										{formatDate(item.updatedAt ?? '')}
 									</span>
 								</div>
 								<h3 class={$styles.title}>{item.title}</h3>
@@ -71,8 +77,9 @@ export default defineComponent({
 									<NIcon size="0.85rem" style={{ marginRight: '0.15rem' }}>
 										<Category />
 									</NIcon>
-									<span>{categoryFilter(item.cid, pageState.categoryList)}</span>
+									<span>{categoryFilter(item.cid as number, pageState.categoryList)}</span>
 								</div>
+								<a class={$styles.btn} onClick={() => toDetail(item.id as number)}>more...</a>
 							</div>
 						</div>
 					)
