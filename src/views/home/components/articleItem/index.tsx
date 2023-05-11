@@ -9,6 +9,7 @@ import { Calendar } from '@vicons/ionicons5'
 import { Category } from '@vicons/carbon'
 import { formatDate } from '@/utils/date'
 import { getCategoryList } from '@/api/category'
+import { useRouter } from 'vue-router'
 
 interface State {
 	queryParams: PageQuery
@@ -30,6 +31,7 @@ const categoryFilter = (key: number, list: Array<{ name: string; id: number }>) 
 export default defineComponent({
 	name: 'ArticleItem',
 	setup() {
+		const $router = useRouter()
 		const pageState = reactive<State>({
 			queryParams: {
 				current: 1,
@@ -49,10 +51,7 @@ export default defineComponent({
 			}
 		})
 		const toDetail = async (id: number) => {
-			const { code, data } = await getArticleDetail(id)
-			if (code === 200 && !isNil(data)) {
-				console.log('data', data)
-			}
+			$router.push(`/article/${id}`)
 		}
 		return () => (
 			<>
