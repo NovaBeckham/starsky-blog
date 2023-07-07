@@ -13,10 +13,9 @@ const requests = axios.create({
 
 requests.interceptors.request.use(
 	(config: InternalAxiosRequestConfig) => {
-		// 请求带token
-		// if (getToken()) {
-		//   config.headers["Authorization"] = token_prefix + getToken();
-		// }
+		if (localStorage.getItem('starskyToken')) {
+			config.headers['Authorization'] = 'Bearer ' + localStorage.getItem('starskyToken')
+		}
 		return config
 	},
 	(error: AxiosError) => {
@@ -26,28 +25,31 @@ requests.interceptors.request.use(
 
 requests.interceptors.response.use(
 	(response: AxiosResponse) => {
-		if (response.status === 200) {
-			return response.data
-		}
-		switch (response.status) {
+		switch (response.data.code) {
 			case 400:
-				message.error('没有权限')
+				message.error(response.data.msg)
 				break
+			case 402:
+				message.info("登录状态已过期，您可以继续留在该页面，或者重新登录")
+				localStorage.removeItem('starskyToken')
+				location.href = '/login'
 			case 500:
-				message.error('请求超时')
+				message.error(response.data.msg)
 				break
 		}
+		return response.data
 	},
 	(error: AxiosError) => {
-		let msg = error.message
-		if (msg == 'Network Error') {
-			msg = '后端接口连接异常'
-		} else if (msg.includes('500')) {
-			msg = '系统接口请求超时'
-		} else if (msg.includes('Request failed with status code')) {
-			msg = '系统接口' + msg.substring(msg.length - 3) + '异常'
+		const { message: messageInfo } = error
+		let description = ''
+		if (messageInfo == 'Network Error') {
+			description = '后端接口连接异常'
+		} else if (messageInfo.includes('timeout')) {
+			description = '系统接口请求超时'
+		} else if (messageInfo.includes('Request failed with status code')) {
+			description = '系统接口' + messageInfo.substring(messageInfo.length - 3) + '异常'
 		}
-		message.error(msg, { duration: 5000 })
+		message.error(description)
 		return Promise.reject(error)
 	}
 )

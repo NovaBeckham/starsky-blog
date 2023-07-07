@@ -17,6 +17,10 @@ export interface PageQuery {
  */
 export interface Result<T = any> {
   /**
+   * 返回状态
+   */
+  success: boolean;
+  /**
    * 状态码
    */
   code: number;
@@ -27,7 +31,7 @@ export interface Result<T = any> {
   /**
    * 返回数据
    */
-  data: T;
+  data?: T;
 }
 
 /**
@@ -42,4 +46,12 @@ export interface PageResult<T> {
    * 总数
    */
   total: number;
+  /**
+   * 当前页数
+   */
+  current: number;
+  /**
+   * 每页个数
+   */
+  size: number;
 }

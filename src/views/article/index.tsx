@@ -1,6 +1,5 @@
-import { getArticleDetail } from '@/api/article'
-import { Article } from '@/api/article/types'
-import { isNil } from 'ramda'
+import { Article, getArticleDetail } from '@/api/article'
+import { isNil } from 'lodash'
 import { defineComponent, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import $styles from './index.module.scss'
@@ -21,13 +20,13 @@ export default defineComponent({
 			<div>
 				<div class="page-header">
 					<div class="page-title">
-						<h1 class={$styles.articleTitle}>{articleInfo.value.title}</h1>
+						<h1 class={$styles.articleTitle}>{articleInfo.value.articleTitle}</h1>
 					</div>
 				</div>
 				<div class="bg">
 					<div class="main-container">
 						<div class={$styles.articleContainer}>
-							<div>{articleInfo.value.content}</div>
+							<div>{articleInfo.value.articleContent}</div>
 						</div>
 					</div>
 				</div>

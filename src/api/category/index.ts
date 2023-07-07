@@ -1,9 +1,18 @@
 import { Result } from '@/model'
 import requests from '@/utils/request'
 
-interface Category {
-	name: string
-	id: number
+/**
+ * 分类VO
+ */
+export interface Category {
+  /**
+   * 分类id
+   */
+  id?: number;
+  /**
+   * 分类名
+   */
+  categoryName?: string;
 }
 
 /**
@@ -13,7 +22,7 @@ interface Category {
  */
 export function getCategoryList(): Promise<Result<Category[]>> {
 	return requests({
-		url: '/category/getList',
+		url: '/category/list',
 		method: 'get',
 	})
 }
