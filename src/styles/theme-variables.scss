@@ -1,0 +1,23 @@
+:root {
+  --max-width: 1600px;
+  --gap: 2rem;
+  --main-gradient: linear-gradient(
+    130deg,
+    #24c6dc,
+    #5433ff 41.07%,
+    #ff0099 76.05%
+  );
+  --theme-transition: all 250ms ease;
+}
+
+.theme-light {
+  --background-primary: #f1f3f9;
+  --background-secondary: #ffffff;
+  --text-bright: #000000;
+}
+
+.theme-dark {
+  --background-primary: #1a1a1a;
+  --background-secondary: #212121;
+  --text-bright: #fff;
+}
