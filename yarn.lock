@@ -1224,6 +1224,11 @@ vue-i18n@^9.9.0:
     "@intlify/shared" "9.9.0"
     "@vue/devtools-api" "^6.5.0"
 
+vue-lazyload@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/vue-lazyload/-/vue-lazyload-3.0.0.tgz#37529064da6ba774e969cc9d86b5418e230b16d4"
+  integrity sha512-h2keL/Rj550dLgesgOtXJS9qOiSMmuJNeVlfNAYV1/IYwOQYaWk5mFJlwRxmZDK9YC5gECcFLYYj7z1lKSf9ug==
+
 vue-router@^4.2.5:
   version "4.2.5"
   resolved "https://registry.npmjs.org/vue-router/-/vue-router-4.2.5.tgz#b9e3e08f1bd9ea363fdd173032620bc50cf0e98a"
