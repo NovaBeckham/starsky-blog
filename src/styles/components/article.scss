@@ -1,0 +1,83 @@
+.article-container {
+  @apply relative h-full rounded-2xl list-none;
+}
+
+.article {
+  @apply relative top-0 z-10 rounded-2xl bg-ob-deep-800 shadow-lg grid grid-rows-3 overflow-hidden h-full;
+  transition: transform 0.2s ease-in-out;
+  .article-thumbnail {
+    @apply row-span-1 relative;
+    img {
+      @apply rounded-2xl block absolute z-20 bg-cover bg-no-repeat object-cover w-full h-12/10;
+    }
+    .thumbnail-screen {
+      @apply z-30 absolute w-full h-12/10 left-0 pointer-events-none opacity-40;
+      max-width: 120%;
+      mix-blend-mode: screen;
+    }
+    &:after {
+      pointer-events: none;
+      content: "";
+      position: absolute;
+      z-index: 35;
+      top: 13%;
+      left: 0;
+      height: 120%;
+      width: 100%;
+      background: var(--article-cover);
+    }
+  }
+  .article-content {
+    @apply row-span-2 flex flex-col z-40 relative px-6 pb-6 bg-transparent;
+    span {
+      filter: drop-shadow(0 2px 1px rgba(0, 0, 0, 0.1));
+      b {
+        @apply text-ob text-xs uppercase;
+      }
+      ul {
+        @apply inline-flex pl-4 text-xs;
+        li {
+          @apply mr-3;
+        }
+      }
+    }
+    h1 {
+      @apply text-ob-bright text-2xl font-extrabold mb-6 lg:mt-4 lg:mb-5;
+    }
+    p {
+      @apply text-base mb-2;
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+  }
+}
+
+.feature-article {
+  @apply grid grid-rows-3 lg:grid-cols-2 lg:grid-rows-none relative top-0 z-10 lg:w-full lg:h-98 rounded-2xl shadow-lg overflow-hidden bg-ob-deep-800;
+  transition: transform 0.2s ease-in-out;
+  .feature-thumbnail {
+    @apply relative row-span-1 lg:row-auto;
+    img {
+      @apply block absolute z-20 left-0 bg-cover bg-no-repeat w-full h-12/10 lg:h-98 lg:w-12/10 object-cover;
+    }
+    span {
+      @apply z-30 absolute w-full h-12/10 lg:h-98 lg:w-12/10 left-0 pointer-events-none opacity-40;
+    }
+    &:after {
+      pointer-events: none;
+      content: "";
+      position: absolute;
+      z-index: 35;
+      left: 71%;
+      top: 0;
+      height: 100%;
+      width: 50%;
+      background: var(--gradient-cover);
+    }
+  }
+}
+
+.thumbnail-screen {
+  max-width: 120%;
+  mix-blend-mode: screen;
+}

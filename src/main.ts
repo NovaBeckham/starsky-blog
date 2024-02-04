@@ -12,6 +12,7 @@ import { i18n } from "./locales"
 import { createPinia } from "pinia"
 import VueClickAway from "vue3-click-away"
 import VueLazyload from "vue-lazyload"
+import defaultCover from "@/assets/default-cover.jpg"
 
 const pinia = createPinia()
 const app = createApp(App)
@@ -22,7 +23,7 @@ const app = createApp(App)
   .use(VueLazyload, {
     lazyComponent: true,
     observer: true,
-    loading: require("@/assets/default-cover.jpg"),
-    error: require("@/assets/default-cover.jpg"),
+    loading: defaultCover,
+    error: defaultCover,
   })
 app.mount("#app")

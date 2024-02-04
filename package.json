@@ -9,13 +9,24 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^1.6.5",
+    "axios": "^1.6.7",
+    "markdown-it": "^14.0.0",
+    "markdown-it-abbr": "^2.0.0",
+    "markdown-it-container": "^4.0.0",
+    "markdown-it-emoji": "^3.0.0",
+    "markdown-it-footnote": "^4.0.0",
+    "markdown-it-ins": "^4.0.0",
+    "markdown-it-katex": "^2.0.3",
+    "markdown-it-katex-external": "^1.0.0",
+    "markdown-it-mark": "^4.0.0",
+    "markdown-it-sub": "^2.0.0",
+    "markdown-it-sup": "^2.0.0",
     "pinia": "^2.1.7",
     "vue": "^3.4.10",
     "vue-i18n": "^9.9.0",
+    "vue-lazyload": "^3.0.0",
     "vue-router": "^4.2.5",
-    "vue3-click-away": "^1.2.4",
-    "vue-lazyload": "^3.0.0"
+    "vue3-click-away": "^1.2.4"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",
